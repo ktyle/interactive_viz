@@ -1,0 +1,296 @@
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:443: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes_full'] = WX_Codes_Filter['wxcodes']
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:458: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['HZ BLDU','BCFZFG BR','VCSS','-BLSN','BCFZFG', 'GR', 'BLSN VCSH', 'VCMIFG', 'HZ PRFG','FZFG BR','MIFG BCFG', 'PRFG MIFG','-', 'GS','HZ DRSN', 'DRSN BR','DRSN BR''HZ DRSN','FU PRFG', 'DRSN HZ','VCPO','PO', 'SHGR','VCFG MIFG', 'VCVA','FG VCSH','BLSN FZFG','VCBR','BR FU','BR BCFG','BR PRFG','BCFG BR','BR MIFG','BR VCFG','PRFG BR', 'VCFG BR','MIFG BR','BR HZ','BLSN BR','BR BLSN','BR DRSN','FU BR','BR','+FC','VCBLSN','FC','HZ BLSN','DRSN VCFG','PRFZFG','-DS','FZFG BLSN','HZ SQ','DRSN VCSH','FG HZ', 'DRSN VCBLSN','VCFG HZ','-HZ','DS','NSW','-DRSN','FG FU','FU HZ','BLSN DRSN','SS','DRDU', 'BLSA', 'SA','DU','HZ FU','BLDU','BCFG FU','VCHZ','PRFG','NP','M','NaN','DRSN', 'FG', 'HZ', 'FZFG','BLSN','FU','FZFG FU','MIFG','PRFG FU','PRFG FU','VCFG','BCFG','VCBLDU','+FG','BR DU','HZ BR',],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:463: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['-SN BR SQ', 'SN FG SQ','-SN FZFG DRSN','-SNSN','SHSNGS BLSN','-SN DRSN SN','SN BLSN BR','-SGSN', '-SHSN HZ','-SHSN BLSN BR', 'SHSN BLSN BR','-FZUP -SN','SHSN VCSH','-SNSG DRSN','-SN BLSN BR','SNSG','-SN FZUP','-SHSN BLSN DRSN','-SHSN FU', 'SHSN FU','-SN DRSN BR', '-SHSN DRSN BR', 'SN DRSN BR','SN +BLSN', '-SHSN +BLSN','SN FZFG BLSN', '-SN DRSN HZ', '+SHSN BR', '-SN +BLSN', '-SN -FZUP','SHSNGS','SHSN FZFG','-SN FU PRFG','-SHSN FG', 'SG FZFG','SG','-SG','-SG DRSN','-SG VCFG','SHSG','-SHSG','SG BR','-SG BR','BLSN -SHSN', '-SG BLSN', '-SHSN FZFG','-SHSNGS BR', '-SNGS', '-SN -','-SNSG BR','SN BCFG','BCFG BR -SHSN','-SN BR FU', '-SHGSSN', '-SHSN PRFG','SN SQ', 'VCFG SHSN','FG -SHSN', 'BR -SN', '-SN VCSH','-SN DRSN VCBLSN','+SHSN DRSN','VCSN BR','-SN PRFG','VCSHSN','SNFG','-SNSG','-SN BCFG','-SN BCFG BR','-SN BR BCFG','SN FU', '-SN FU','SHSN BR','-SHSNGS','-SN UP','-SHSN BCFG','-SHSN VCFG','-SHSN','SNBR','-SN FZFG BLSN','-SN -UP','+SHSN BLSN', 'SN DRSN','-SN HZ', '-SN HZ DRSN','-SN VCFG','SQ','-SHSN BLSN','-SN BR DRSN','-SN SQ','BLSN SHSN','-SHSN DRSN','SHSN BLSN','SN BR','+SHSN','-SG FZFG','-SHSN BR','SHSN','-SN','-SN BR','SN','-SN DRSN','-SN BLSN','SN BLSN','-SNBR','SN FZFG','SN FG','-SN FG','-SN FZFG'],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:466: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['VCTSSN', 'VCTS SN BR', 'TSSN FG','+VCTSSN', '+TSSN','VCTS SN FZFG','TSSN BLSN','-VCTSSN','SN VCTS','+SN VCTS','-SN VCTS','-VCTSSN BR','+TSGSSN', '-TSSNGS', '+TSGSSN', '-TSSNGS','TSSNGS','TSSN','-TSSN BR','VCTS -SN','VCTS -SN FZFG', 'VCTS -SN BR','-TSSN'],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:469: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['+SN FG SQ','-FZRA +SN','+SN BCFG','+SNSG','+SN -UP','+SN DRSN','+SN +BLSN','+SN BR','+SN BLSN','+SN','+SN FG','+SN FZFG'],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:472: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['IC BCFG BR','IC PRFG','IC BR','IC -SHGS DRSN','IC DRDU DRSN','IC HZ','-IC BR VCFG','IC BR DRSN','IC DRSA','IC BCFG','IC FZFG','+SHPL','PLBR','PL FZFG','PL BR',  'IC DRSN VCBLSN','-IC BR','-PL FZFG','IC BLSN','BR PL','IC VCFG','IC HZ DRSN','IC DRSN','-IC','-IP','IP','IC','-PL','PL',],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:475: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['VCTS PL','+TSPL FZFG','TSPL','-TSPL BR','TSPL BR','VCTS PL BR'],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:478: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['+PL BR','+PL FZFG','+PL FG','+IC','+IP','+PL'],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:481: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['-DZBR','RA SQ','VCTS RA HZ', 'RA BR SQ','-SHGS BR','RA UP BR', 'RA MIFG','-RAGS', '+SH', 'RA VCFG', '-RA SQ','-RA BLDU','-DZ VCFG BR','-DZ PRFG BR','DZSG', '-DZSG VCSH', '-SHRA PRFG BR', 'RA DU','RA -UP BR','-SHRA BR BCFG','-RA DU', 'SHRA BCFG BR','-SHRA BCFG BR','-RA BR BCFG','BR RADZ', '+SHGSRA', '-RA -', '-DZSG','SHRAGR', '-RA FZFG','DZRABR','BR FG','FG BR','-SGRAGS','RA BR VCSH','-SHRAGR','RADZ BCFG','-RA -UP BR','BR -RA', '-RA -UP BR''SHSGRA','SHGR BR', '+SHGR BR','SHGR BR', '+SHGR BR','-SHGS','-GS BR','-SHRAGS BR','-SHRAGS','SHRAGS','-SHGSRA','SHGSRA','+SHRAGS','GS BR','-SHGR','VCFC VCSH','FG -DZ','BCFG VCSH','-VCSH','FC VCSH','DZ VCFG','-VCRA', '-SHRA DZ', '-SHRA FU','VCSH BR', 'DR', '+DZ FG','VCSHRA','-DZ FU', 'RA VCSH','- SHRA','SHRA BR FU', '-RADZ FG', '-SHRA +DZ','SHRA HZ', '-SHRA -DS', '-FG DZ', 'FG RA', 'VC RA','SH','-RA BCFG BR', '-DZ PRFG','VCDZ', '- DZ', 'RABR', '-SHRAHZ',  '-DZ BCFG', '+SHRA BR','VCFG VCSH','FZFG VCSH','-SHRA BR FU','RA HZ', '-DZ VCSH', '-RADZ VCFG', '-DZ VCFG', '+DZ BR','DZ VCSH','VCSH HZ', '-SH','-RA RA','-SHRA HZ','RA HZ', '-DZRA BR', 'RADZ FG','BR -RADZ','-RA BR FU','-RA PRFG', '-RA FG FU', 'RA -UP','-RA -UP', 'SHRA BR','-RADZ BR','FG DZ','-RABR','-RA VCSH', 'RADZ BR', '- RA', 'BR DZ','-DZRA VCFG','-RA SHRA', 'BR VCSH','SHRA VCSH','RA BCFG','FG -RA','DZRA BR','-RA BR VCFG','-RA HZ', '-SHRA VCSH', '- RA BR','-SHGRRA','VCRA','-SHRA PRFG','DRSA','-SHRA BCFG','SHGS', 'DZRA', '-SHRA FG','-RADZ BCFG','-RA VCFG','-RA BCFG', '+SHRA','RADZ','-RA BR','+DZRA', '+DZ', '-SHRA BR','-RA MIFG','BR -DZ', 'DZ', '-DZRA','-SHRA','-RADZ','-RA','RA','RA BR','-RA FG','-DZ BR','SHRA','-DZ FG','-DZ','DZ BR','SHRA''-RA BR','DZ FG','RA FG','VCSH'],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:484: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['+TSRAGR','VCTS GR','+SHGR', '+TSGR','-SHGR VCTS','VCTS +RA FG','+TSRA BR SQ', '+VCTSRA BR','VCTSRA BR', '+VCTSDZ','RA FG VCTS', 'VCTSHZ', '-RA BR VCTS','-VCTSRA BR','VCTSBR',  'SHRAGS TS','+TS','TSDZ', '+SHRA VCTS','-VCTSDZ', 'TSGS','TSGR', '-TS SHRA','BR TS','TSRA FG','TS RABR','-DZ VCTS','TS FZFG','VCTS FZFG','-TSSH','-TSGRRA','TSRAGR','-TSGR','TS GR','TSGSRA','TSGSRA','+TSGSRA','-TSRAGS', 'TSRAGS','VCTS DZ', 'TSRA BCFG','BR TSRA', 'BR -TSRA','-TSRA PRFG','+TSBR','VCTSDZ','-TSSHRA','VCTS -TSRA','TSBR', '-TS RA','-TSDZ','VCTS HZ','VCTS +SHRA','-SHRA TS','+RA BR VCTS','SQ -TSRA','-TSRA HZ','SHRA VCTS','VCTS -DZ','VCTS RA','RA VCTS', 'TSRA VCFG','+RA VCTS','-SHRA VCTS','-TSRA VCSH','VCTS VCSH','TS -DZ','TS SHRA','TS HZ','TSSHRA','TSHZ', 'TS FG','TSSHRA','VCTS BR','VCTS -RA','+TSRA FG','VCTSSH','TS RA','RA BR VCTS','VCTS +RA','+RA FG VCTS','-TSRA FG', 'TSRA BR', 'VCTS RA FG', '-VCTSRABR','VCTS +RA BR','-TS','VCTS FG','VCTSRA','SHRA TS','TS BR','-TSRA BR', 'VCSH VCTS','+VCTSRA','VCTS -RA BR','-RA VCTS','VCTS RA BR','-VCTSRA','+TSRA','TS VCSH', '+TSRA BR', 'VCTS SHRA', 'TSRA','-RA TS','VCTS','VCTS -SHRA','TS','VCSH TS','-TSRA',],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:487: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['+RA SQ','+RA FG SQ','+RA BR SQ','+RA BCFG VCTS','+RA FG VCFG','+RA VCFG','+RABR','+RA BCFG','+RA HZ','+RA FG','+RA','+RA BR',],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:490: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace([ '-FZRA -RA','FZRA -SN','FZRASN BLSN','-FZRADZ','-FZRA -SN BLSN','-FZRA -SN BLSN','-FZDZ -SN DRSN','-FZRA BCFG','-FZRA FG','FZRA SN BR', 'FZRASN BR','FZRA SN', '-FZDZ FG','FZRA FZFG','-FZRA SN', '+FZDZ FZFG','+FZDZ BR','-FZRASN BR','FZDZ BR','+FZDZ','-FZDZ BCFG','- FZ RA','-FZRA FZFG','-FZRA -SN','-FZDZ -SN','-FZDZ -SN BR','-FZDZ FZFG','FZDZ FZFG','FZRA FG','FZRA','-FZDZ','-FZDZ BR','-FZRA','-FZRA BR','FZDZ','FZRA BR','-FZDZSN','-FZRASN'],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:493: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['TS FZRA BR','VCTS FZRA FZFG','VCTS FZRA BR','TSFZRA BR','VCTS FZRA','TS -FZRA','VCTS -FZRA',],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:496: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['+FZRA BR','+FZRA',],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:499: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['-FZRA +SHPL BLSN','FZRA PL','FZRAPL','-FZDZPL','FZRA PL FZFG','FZRA PL BR','-FZRAPL','-FZRA -PL -SN','-FZRASNPL','-FZDZ -PL','-FZRA -PL','-FZRAPL BR','-FZRA -PL DRSN','-FZRA -PL BR'],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:502: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['TS -FZRAPL','TS FZRAPL FZFG','TS FZRAPL BR',],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:505: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace([],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:508: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace([ '-RA -SN -','RASN -UP','SHRASN BR', '-SN RA','-SG VCSH','-SNRA BLSN','-RASN BR VCFG','-SHSNRAGS','SHSNRA FG''-SN RA','RA -SN','-SHRASN BCFG','+SHRASN','BR -SNRA','-SNDZ','-SNRA FG','SNRA BR','-SNRA VCFG','SHRASNGS', '-RAPLSN','SHSNRA BR','-SNRA PRFG','-RASNGS','+SHSNRA','SNRA FG','-SNRA FZFG','SHSNRA','-RASN DRSN','-SHRASNGS','SHRASN','-SHSNRA BR','SHRAGSSN','RA SN','SHGSSN', 'SHSN DRSN','-DZSN','-SHRASN BR','VCSH DRSN','-SNRA -UP','SNRA','RASN BR','-SHSNRA','-RA -SN','-RA -SN BR','-RASN BR','-FZRA -SN DRSN','-RASN','RASN','-FZRA -SN BR','-SNRA BR','-SHRASN','-SNRA'],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:511: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['TSRASN','-TSSNRA', ],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:514: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['+SNRA BR','+RASN FG VCFG','+RASN','+SNRA','+RA SN',],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:517: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['-PLSN BR','+SHPL BLSN','IC -SN DRSN','IC -SG','-PLSN', 'IC -SG VCBLSN DRSN','-SNPL BLSN','-DZSNPL','-SN PL','SNPL','-SNPL','-PL -SN BR','-PL -SN','-SNPL BR','-SNPL DRSN', '-PLSN DRSN','IC -SN'],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:520: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['-TSSNPL',],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:523: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace([],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:526: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['-PLRA BR','-RAPLSN BR','-SHRA -PL','RAPL BR','-PLRA','-RASNPL', '-SNPLRA','-RAPL', '-RA -PL', '-RA -PL BR','-RA -PL -SN','RAPL','-RA -PL -SN BR','-RAPL BR','-SHPL BR', '-PL BR'],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:529: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace([],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:532: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['+RAPL',],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:535: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace([ '-UP FG','-FZUP -SG','FZUP','FZUP FZFG','-FZUP BR','-FZUP FZFG', '-FZUP', 'FZUP BR','-SHUP','UP HZ','-UP FZFG', '-UP BR','UP FG','UP','-UP','UP BR','UP FZFG',],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:538: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['VCTS UP BR','VCTSUP','TSUP','VCTS UP','VCTS UP HZ', 'VCTS UP FZFG','UP VCTS','TSUP BR'],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:541: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['+FZUP','+UP BR','+UP',],
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:543: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['ptype'] = WX_Codes_Filter['wxcodes'].map(precip_types_map)
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:544: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['color'] = WX_Codes_Filter['wxcodes'].map(precip_types_color)
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:567: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['ptype'] = WX_Codes_Filter['ptype'].fillna(0)
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:575: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['valid']=WX_Codes_Filter['valid'].astype(str)
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:576: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['valid'] = WX_Codes_Filter['valid'].apply(lambda x: x + 'Z')
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:584: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['valid_rounded'] = pd.to_datetime( WX_Codes_Filter['valid'])
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:585: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['valid_rounded'] = WX_Codes_Filter['valid_rounded'].apply(lambda x: x + pd.Timedelta(minutes=60) if x.minute >= 1 and x.minute < 30 else x)
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:586: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['valid_rounded'] = WX_Codes_Filter['valid_rounded'].apply(lambda x: x + pd.Timedelta(hours=1) if x.minute >= 30 else x)
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:587: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  WX_Codes_Filter['valid_rounded'] = WX_Codes_Filter['valid_rounded'].dt.strftime('%Y-%m-%d %H:00Z')
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:628: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  ASOS_data_real['Real Feel Temperature'] = ASOS_data_real['Real Feel Temperature'].astype(float).round()
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:648: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  ASOS_data_gust['Max Gust (mph)'] = (ASOS_data_gust['Max Gust (mph)']*1.15078).round().astype(int)
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:656: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  ASOS_data_temp['Temperature (F)_r'] = round(ASOS_data_temp['Temperature (F)'].astype(float)).astype(int).astype(str).astype('U')
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:789: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  NYSM_data['Wind (mph)'] = NYSM_data['Wind (mph)'].astype(object)
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:790: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  NYSM_data['Real Feel Temperature'] = NYSM_data['Real Feel Temperature'].astype(object)
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:791: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  NYSM_data['1 Hour Precipitation'] = NYSM_data['1 Hour Precipitation'].astype(object)
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:792: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  NYSM_data['Max Gust (mph)'] = NYSM_data['Max Gust (mph)'].astype(object)
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:793: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  NYSM_data['Temperature (F)'] = NYSM_data['Temperature (F)'].astype(object)
+/knight/anaconda_aug22/envs/aug22_env/lib/python3.10/site-packages/pandas/core/reshape/merge.py:916: FutureWarning: In a future version, the Index constructor will not infer numeric dtypes when passed object-dtype sequences (matching Series behavior)
+  key_col = Index(lvals).where(~mask_left, rvals)
+/knight/anaconda_aug22/envs/aug22_env/lib/python3.10/site-packages/pyproj/crs/crs.py:130: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/knight/anaconda_aug22/envs/aug22_env/lib/python3.10/site-packages/pyproj/crs/crs.py:130: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:818: DeprecationWarning: This function is deprecated. See: https://pyproj4.github.io/pyproj/stable/gotchas.html#upgrading-to-pyproj-2-from-pyproj-1
+  Temp_data['x'], Temp_data['y'] = transform(inProj,outProj,Temp_data['Lon'].values,Temp_data['Lat'].values)
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:819: DeprecationWarning: This function is deprecated. See: https://pyproj4.github.io/pyproj/stable/gotchas.html#upgrading-to-pyproj-2-from-pyproj-1
+  Ptype_data['x'], Ptype_data['y'] = transform(inProj,outProj,Ptype_data['Lon'].values,Ptype_data['Lat'].values)
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:820: DeprecationWarning: This function is deprecated. See: https://pyproj4.github.io/pyproj/stable/gotchas.html#upgrading-to-pyproj-2-from-pyproj-1
+  Real_data['x'], Real_data['y'] = transform(inProj,outProj,Real_data['Lon'].values,Real_data['Lat'].values)
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:821: DeprecationWarning: This function is deprecated. See: https://pyproj4.github.io/pyproj/stable/gotchas.html#upgrading-to-pyproj-2-from-pyproj-1
+  Gust_data['x'], Gust_data['y'] = transform(inProj,outProj,Gust_data['Lon'].values,Gust_data['Lat'].values)
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:822: DeprecationWarning: This function is deprecated. See: https://pyproj4.github.io/pyproj/stable/gotchas.html#upgrading-to-pyproj-2-from-pyproj-1
+  Precip_data['x'],Precip_data['y'] = transform(inProj,outProj,Precip_data['Lon'].values,Precip_data['Lat'].values)
+getting mPING reports from 1440 min ending at 01:40z 21 Feb 2023
+retrieved 579 reports
+Downloading: 2023-02-21 01:40:08.266846
+Downloading: 2023-02-20 01:40:08.266846
