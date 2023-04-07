@@ -1,3 +1,5 @@
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:382: DtypeWarning: Columns (9) have mixed types. Specify dtype option on import or set low_memory=False.
+  ASOS_data = pd.read_csv("ASOS_pre.csv", delimiter=',')
 /nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:443: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
@@ -226,49 +228,51 @@ Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   WX_Codes_Filter['valid_rounded'] = WX_Codes_Filter['valid_rounded'].dt.strftime('%Y-%m-%d %H:00Z')
-/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:628: SettingWithCopyWarning: 
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:629: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   ASOS_data_real['Real Feel Temperature'] = ASOS_data_real['Real Feel Temperature'].astype(float).round()
-/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:648: SettingWithCopyWarning: 
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:649: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   ASOS_data_gust['Max Gust (mph)'] = (ASOS_data_gust['Max Gust (mph)']*1.15078).round().astype(int)
-/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:656: SettingWithCopyWarning: 
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:657: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   ASOS_data_temp['Temperature (F)_r'] = round(ASOS_data_temp['Temperature (F)'].astype(float)).astype(int).astype(str).astype('U')
-/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:789: SettingWithCopyWarning: 
+/knight/anaconda_aug22/envs/aug22_env/lib/python3.10/site-packages/pandas/core/reshape/merge.py:916: FutureWarning: In a future version, the Index constructor will not infer numeric dtypes when passed object-dtype sequences (matching Series behavior)
+  key_col = Index(lvals).where(~mask_left, rvals)
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:796: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   NYSM_data['Wind (mph)'] = NYSM_data['Wind (mph)'].astype(object)
-/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:790: SettingWithCopyWarning: 
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:797: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   NYSM_data['Real Feel Temperature'] = NYSM_data['Real Feel Temperature'].astype(object)
-/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:791: SettingWithCopyWarning: 
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:798: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   NYSM_data['1 Hour Precipitation'] = NYSM_data['1 Hour Precipitation'].astype(object)
-/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:792: SettingWithCopyWarning: 
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:799: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   NYSM_data['Max Gust (mph)'] = NYSM_data['Max Gust (mph)'].astype(object)
-/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:793: SettingWithCopyWarning: 
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:800: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -280,17 +284,17 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
   in_crs_string = _prepare_from_proj_string(in_crs_string)
 /knight/anaconda_aug22/envs/aug22_env/lib/python3.10/site-packages/pyproj/crs/crs.py:130: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
   in_crs_string = _prepare_from_proj_string(in_crs_string)
-/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:818: DeprecationWarning: This function is deprecated. See: https://pyproj4.github.io/pyproj/stable/gotchas.html#upgrading-to-pyproj-2-from-pyproj-1
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:895: DeprecationWarning: This function is deprecated. See: https://pyproj4.github.io/pyproj/stable/gotchas.html#upgrading-to-pyproj-2-from-pyproj-1
   Temp_data['x'], Temp_data['y'] = transform(inProj,outProj,Temp_data['Lon'].values,Temp_data['Lat'].values)
-/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:819: DeprecationWarning: This function is deprecated. See: https://pyproj4.github.io/pyproj/stable/gotchas.html#upgrading-to-pyproj-2-from-pyproj-1
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:896: DeprecationWarning: This function is deprecated. See: https://pyproj4.github.io/pyproj/stable/gotchas.html#upgrading-to-pyproj-2-from-pyproj-1
   Ptype_data['x'], Ptype_data['y'] = transform(inProj,outProj,Ptype_data['Lon'].values,Ptype_data['Lat'].values)
-/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:820: DeprecationWarning: This function is deprecated. See: https://pyproj4.github.io/pyproj/stable/gotchas.html#upgrading-to-pyproj-2-from-pyproj-1
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:897: DeprecationWarning: This function is deprecated. See: https://pyproj4.github.io/pyproj/stable/gotchas.html#upgrading-to-pyproj-2-from-pyproj-1
   Real_data['x'], Real_data['y'] = transform(inProj,outProj,Real_data['Lon'].values,Real_data['Lat'].values)
-/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:821: DeprecationWarning: This function is deprecated. See: https://pyproj4.github.io/pyproj/stable/gotchas.html#upgrading-to-pyproj-2-from-pyproj-1
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:898: DeprecationWarning: This function is deprecated. See: https://pyproj4.github.io/pyproj/stable/gotchas.html#upgrading-to-pyproj-2-from-pyproj-1
   Gust_data['x'], Gust_data['y'] = transform(inProj,outProj,Gust_data['Lon'].values,Gust_data['Lat'].values)
-/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:822: DeprecationWarning: This function is deprecated. See: https://pyproj4.github.io/pyproj/stable/gotchas.html#upgrading-to-pyproj-2-from-pyproj-1
+/nfs/spare11/mb127935/interactive_viz/data/ASOS_MPING_data/ASOS_MPING_data.py:899: DeprecationWarning: This function is deprecated. See: https://pyproj4.github.io/pyproj/stable/gotchas.html#upgrading-to-pyproj-2-from-pyproj-1
   Precip_data['x'],Precip_data['y'] = transform(inProj,outProj,Precip_data['Lon'].values,Precip_data['Lat'].values)
-getting mPING reports from 1440 min ending at 01:40z 21 Feb 2023
-retrieved 579 reports
-Downloading: 2023-02-21 01:40:08.266846
-Downloading: 2023-02-20 01:40:08.266846
+getting mPING reports from 1440 min ending at 20:34z 07 Apr 2023
+retrieved 878 reports
+Downloading: 2023-04-07 20:34:00.208145
+Downloading: 2023-04-06 20:34:00.208145

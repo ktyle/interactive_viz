@@ -604,6 +604,7 @@ WX_Codes_Filter['Time'] = pd.to_datetime(WX_Codes_Filter['Time'])
 
 precip_filter = WX_Codes_Filter[WX_Codes_Filter['1 Hour Precipitation'] != 'M']
 precip_filter = precip_filter[precip_filter['1 Hour Precipitation'] != '0.00']
+precip_filter['1 Hour Precipitation'] = precip_filter['1 Hour Precipitation'].astype(float)
 #WX_Codes_Filter2[WX_Codes_Filter2['Station'] == 'FYV']
 ASOS_precip_hr = precip_filter.groupby(['Station','Time','Lat','Lon'])['1 Hour Precipitation'].max().reset_index()
 
@@ -665,8 +666,8 @@ ASOS_data_ptype = WX_Codes_Filter[WX_Codes_Filter['WX Code'] != 'NULL']
 ASOS_data_ptype = ASOS_data_ptype[ASOS_data_ptype['WX Code'] != 'M']
 ASOS_data_ptype = ASOS_data_ptype[ASOS_data_ptype['WX Code'] != '#000000']
 ASOS_data_ptype = ASOS_data_ptype[ASOS_data_ptype['Current WX'] != 'NULL']
-ASOS_data_ptype = ASOS_data_ptype.dropna()
 ASOS_data_ptype = ASOS_data_ptype[ASOS_data_ptype['Current WX'] != '#000000']
+ASOS_data_ptype = ASOS_data_ptype.drop_duplicates(subset=['Time', 'Station'], keep='last')
 
 
 # ### NYSM_data
@@ -725,12 +726,18 @@ precip_NYSM = precip_NYSM.groupby(['Station', 'Lat','Lon','Time']).last().reset_
 # In[40]:
 
 
+precip_NYSM['1 Hour Precipitation'] = precip_NYSM['1 Hour Precipitation'].astype(float)*0.0393701
+
+
+# In[41]:
+
+
 #NYSM_data.columns
 
 
 # ### Converting NYSM temp and adding wind chill
 
-# In[41]:
+# In[42]:
 
 
 NYSM_data['Temperature (F)'] = (NYSM_data['Temperature (F)']*9/5)+32
@@ -740,14 +747,14 @@ NYSM_Wind =NYSM_data['Wind (mph)'].values*units.mph
 NYSM_data['Real Feel Temperature'] = mpcalc.apparent_temperature(NYSM_Temp.astype(float), NYSM_data['Relative Humidity'], NYSM_Wind.astype(float), mask_undefined=False)
 
 
-# In[42]:
+# In[43]:
 
 
 NYSM_data['Temperature (F)_r'] = round(NYSM_data['Temperature (F)'].astype(float)).astype(int).astype(str).astype('U')
 NYSM_data['Real Feel Temperature'] = NYSM_data['Real Feel Temperature'].round().astype(int)
 
 
-# In[43]:
+# In[44]:
 
 
 NYSM_data_gust = NYSM_data
@@ -758,7 +765,7 @@ NYSM_max_gust = NYSM_max_gust.reset_index()
 NYSM_max_gust['Max Gust (mph)'] =NYSM_max_gust['Max Gust (mph)'].round().astype(int)
 
 
-# In[44]:
+# In[45]:
 
 
 NYSM_data = NYSM_data.drop_duplicates(subset=['Time', 'Station'], keep='last')
@@ -766,7 +773,7 @@ NYSM_data = NYSM_data.drop_duplicates(subset=['Time', 'Station'], keep='last')
 
 # ### Merging Datasets
 
-# In[45]:
+# In[46]:
 
 
 precip_NYSM['1 Hour Precipitation'] = precip_NYSM['1 Hour Precipitation'].astype(object)
@@ -774,7 +781,7 @@ Gust_data = pd.merge(NYSM_max_gust, ASOS_data_gust,  how='outer')
 Precip_data = pd.merge(ASOS_precip_hr, precip_NYSM, how='outer')
 
 
-# In[46]:
+# In[47]:
 
 
 Precip_data = Precip_data[Precip_data['1 Hour Precipitation'] != 0.0001]
@@ -783,7 +790,7 @@ Precip_data = Precip_data[Precip_data['1 Hour Precipitation'] != 0.0]
 
 # ### Changing Dataset columns so they're uniform throughout NYSM and ASOS
 
-# In[47]:
+# In[48]:
 
 
 NYSM_data['Wind (mph)'] = NYSM_data['Wind (mph)'].astype(object)
@@ -795,7 +802,7 @@ NYSM_data['Temperature (F)'] = NYSM_data['Temperature (F)'].astype(object)
 
 # ### Merging the datasets together
 
-# In[48]:
+# In[49]:
 
 
 Temp_data = pd.merge(ASOS_data_temp, NYSM_data, how='outer')
@@ -803,16 +810,86 @@ Real_data = pd.merge(ASOS_data_real, NYSM_data, how='outer')
 Ptype_data = pd.merge(ASOS_data_ptype, MPING_data, how='outer')
 
 
+# In[74]:
+
+
+# Define function to map precipitation types to short codes
+def get_short_code(precip_type):
+    if precip_type == 'Unknown Precip':
+        return 'UP'
+    elif precip_type == 'Heavy Unknown Precip':
+        return '+UP'
+    elif precip_type == 'Unknown Precip with Thunderstorm':
+        return 'TS UP'
+    elif precip_type == 'Snow and/or Graupel':
+        return 'SN'
+    elif precip_type == 'Heavy Snow and/or Graupel':
+        return '+SN'
+    elif precip_type ==  'Snow and/or Graupel with Thunderstorm':
+        return 'TS SN'
+    elif precip_type == 'Ice Pellets/Sleet':
+        return 'IP'
+    elif precip_type == 'Heavy Ice Pellets/Sleet':
+        return '+IP'
+    elif precip_type == 'Ice Pellets/Sleet with Thunderstorm':
+        return 'TS IP'
+    elif precip_type == 'Mixed Ice Pellets and Snow':
+        return 'IP/SN'
+    elif precip_type == 'Heavy Mixed Ice Pellets and Snow':
+        return '+IP/SN'
+    elif precip_type ==  'Mixed Ice Pellets and Snow with Thunderstorm':
+        return 'TS IP/SN'
+    elif precip_type == 'Freezing Rain':
+        return 'ZR'
+    elif precip_type == 'Heavy Freezing Rain':
+        return '+ZR'
+    elif precip_type == 'Freezing Rain with Thunderstorm':
+        return 'TS ZR'
+    elif precip_type == 'Freezing Drizzle':
+        return 'ZR'
+    elif precip_type == 'Mixed Freezing Rain and Ice Pellets':
+        return 'ZR/IP'
+    elif precip_type ==  'Heavy Mixed Freezing Rain and Ice Pellets':
+        return '+ZR/IP'
+    elif precip_type == 'Mixed Freezing Rain and Ice Pellets with Thunderstorm':
+        return 'TS ZR/IP'
+    elif precip_type == 'Rain':
+        return 'RA'
+    elif precip_type == 'Heavy Rain':
+        return '+RA'
+    elif precip_type == 'Rain with Thunderstorm':
+        return 'TS RA'
+    elif precip_type == 'Drizzle':
+        return 'RA'
+    elif precip_type ==  'Mixed Rain and Snow':
+        return 'RA/SN'
+    elif precip_type == 'Heavy Mixed Rain and Snow':
+        return '+RA/SN'
+    elif precip_type == 'Mixed Rain and Snow with Thunderstorm':
+        return 'TS RA/SN'
+    elif precip_type == 'Mixed Rain and Ice Pellets':
+        return 'RA/IP'
+    elif precip_type ==  'Heavy Mixed Rain and Ice Pellets':
+        return '+RA/IP'
+    elif precip_type == 'Mixed Rain and Ice Pellets with Thunderstorm':
+        return 'TS RA/IP'
+    else:
+        return ''
+
+# Apply the function to create a new column
+Ptype_data['Precipitation Label'] = Ptype_data['Current WX'].apply(get_short_code)
+
+
 # ### Adding X and Y coordinates to the data
 
-# In[49]:
+# In[76]:
 
 
 inProj = Proj(init='epsg:4326')
 outProj = Proj(init='epsg:3857')
 
 
-# In[50]:
+# In[77]:
 
 
 Temp_data['x'], Temp_data['y'] = transform(inProj,outProj,Temp_data['Lon'].values,Temp_data['Lat'].values)
@@ -822,7 +899,7 @@ Gust_data['x'], Gust_data['y'] = transform(inProj,outProj,Gust_data['Lon'].value
 Precip_data['x'],Precip_data['y'] = transform(inProj,outProj,Precip_data['Lon'].values,Precip_data['Lat'].values)
 
 
-# In[63]:
+# In[78]:
 
 
 Precip_data_24 = Precip_data.groupby(['Station','Lat','Lon','x','y'])['1 Hour Precipitation'].sum()
@@ -830,25 +907,25 @@ Precip_data_24 = Precip_data_24.reset_index()
 Precip_data_24 = Precip_data_24.rename(columns={'1 Hour Precipitation':'24 Hour Precipitation'})
 
 
-# In[64]:
+# In[79]:
 
 
 Real_data['Real Feel Temperature'] = Real_data['Real Feel Temperature'].astype(float)
 
 
-# In[65]:
+# In[80]:
 
 
 Ptype_data.dropna(subset=['Current WX'], inplace=True)
 
 
-# In[66]:
+# In[81]:
 
 
 Gust_data = Gust_data[Gust_data['Max Gust (mph)'] >= 10]
 
 
-# In[67]:
+# In[82]:
 
 
 Ptype_data['Label'] = 'Precipitation Type'
@@ -859,18 +936,20 @@ Precip_data['Label'] = '1hr Precipitation'
 Precip_data_24['Label'] = '24hr Precipitation'
 
 
-# In[68]:
+# In[87]:
 
 
-Ptype = Ptype_data.loc[:,['Station','OBS Time','Current WX','WX Code', 'Temperature (F)','color','Lat','Lon','Time','Label']]
+Ptype = Ptype_data.loc[:,['Station','OBS Time','Current WX','WX Code', 'Temperature (F)','color','Lat','Lon','Time','Label','Precipitation Label']]
 Gust = Gust_data.loc[:,['Station','Max Gust (mph)','Lat','Lon','Time','Label']]
 Temp = Temp_data.loc[:,['Station','OBS Time','Temperature (F)','Temperature (F)_r','Lat','Lon','Time','Label']]
+Temp['Temperature (F)']= Temp['Temperature (F)'].astype(float).round(2)
 Real_Feel = Real_data.loc[:,['Station','OBS Time','Real Feel Temperature','Temperature (F)','Lat','Lon','Time','Label']]
 Precip = Precip_data.loc[:,['Station','1 Hour Precipitation','Lat','Lon','Time','Label']]
 Precip_24 = Precip_data_24.loc[:,['Station','24 Hour Precipitation','Lat','Lon','Label']]
+Temp['Temperature (F)'] = Temp['Temperature (F)'].astype(float)
 
 
-# In[69]:
+# In[89]:
 
 
 All_data = pd.concat([Ptype, Gust, Temp, Real_Feel, Precip, Precip_24])
@@ -878,7 +957,7 @@ All_data = pd.concat([Ptype, Gust, Temp, Real_Feel, Precip, Precip_24])
 
 # ### Save the Data
 
-# In[70]:
+# In[90]:
 
 
 All_data.to_csv('All_data.csv', index=False)
