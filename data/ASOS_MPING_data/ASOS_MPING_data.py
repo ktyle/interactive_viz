@@ -268,7 +268,7 @@ MPING_data['Time'] = pd.to_datetime(MPING_data['Time'])
 
 # ### Downloading Latest ASOS Data
 
-# In[12]:
+# In[13]:
 
 
 """
@@ -367,7 +367,7 @@ if __name__ == "__main__":
 
 # ### Opening the ASOS data
 
-# In[13]:
+# In[14]:
 
 
 valid_time_str = valid_time.strftime('%Y%m%d')
@@ -393,7 +393,7 @@ ASOS_data2 = pd.read_csv("ASOS_pre2.csv", delimiter=',')
 
 # ### Filtering old dataset to correct times and merging them together
 
-# In[14]:
+# In[17]:
 
 
 ASOS_data2['valid'] = pd.to_datetime(ASOS_data2['valid'])
@@ -405,7 +405,7 @@ mask = (ASOS_data['valid'].dt.time <= valid_time3)
 ASOS_data = ASOS_data[mask]
 
 
-# In[15]:
+# In[18]:
 
 
 ASOS_data_full = pd.concat([ASOS_data2,  ASOS_data])
@@ -413,28 +413,34 @@ ASOS_data_full = pd.concat([ASOS_data2,  ASOS_data])
 
 # ### Filter data to just USA
 
-# In[16]:
+# In[20]:
 
 
 lat_min, lat_max = 20, 50
 lon_min, lon_max = -130, -60
 
 
-# In[17]:
+# In[21]:
 
 
 ASOS_data_full = ASOS_data_full[(ASOS_data_full['lat'] >= lat_min) & (ASOS_data_full['lat'] <= lat_max) & (ASOS_data_full['lon'] >= lon_min) & (ASOS_data_full['lon'] <= lon_max)]
 
 
-# In[18]:
+# In[22]:
 
 
 #ASOS_data_full.columns
 
 
+# In[24]:
+
+
+#ASOS_data_full[ASOS_data_full['station'] == 'ALB']
+
+
 # ### Removing NA/M values from just the data we want
 
-# In[19]:
+# In[25]:
 
 
 #WX_Codes_Filter = ASOS_data_full[ASOS_data_full['wxcodes'] != 'M']
@@ -443,7 +449,7 @@ WX_Codes_Filter = ASOS_data_full[['station','valid','lat','lon','wxcodes','tmpf'
 WX_Codes_Filter['wxcodes_full'] = WX_Codes_Filter['wxcodes']
 
 
-# In[20]:
+# In[26]:
 
 
 #WX_Codes_Filter[WX_Codes_Filter['station'] == 'ALB']
@@ -451,7 +457,7 @@ WX_Codes_Filter['wxcodes_full'] = WX_Codes_Filter['wxcodes']
 
 # ### Adding the PTYPE Map to the ASOS observations
 
-# In[21]:
+# In[1]:
 
 
 #Replacing all of the metar codes with the easier to read map language, this is also used to coencide with the MPING data better as we will use the same language between both
@@ -460,8 +466,8 @@ WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['HZ BLDU','BCFZ
 
 
 #SNOW#############################################################################################################################################################################
-WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['-SN BR SQ', 'SN FG SQ','-SN FZFG DRSN','-SNSN','SHSNGS BLSN','-SN DRSN SN','SN BLSN BR','-SGSN', '-SHSN HZ','-SHSN BLSN BR', 'SHSN BLSN BR','-FZUP -SN','SHSN VCSH','-SNSG DRSN','-SN BLSN BR','SNSG','-SN FZUP','-SHSN BLSN DRSN','-SHSN FU', 'SHSN FU','-SN DRSN BR', '-SHSN DRSN BR', 'SN DRSN BR','SN +BLSN', '-SHSN +BLSN','SN FZFG BLSN', '-SN DRSN HZ', '+SHSN BR', '-SN +BLSN', '-SN -FZUP','SHSNGS','SHSN FZFG','-SN FU PRFG','-SHSN FG', 'SG FZFG','SG','-SG','-SG DRSN','-SG VCFG','SHSG','-SHSG','SG BR','-SG BR','BLSN -SHSN', '-SG BLSN', '-SHSN FZFG','-SHSNGS BR', '-SNGS', '-SN -','-SNSG BR','SN BCFG','BCFG BR -SHSN','-SN BR FU', '-SHGSSN', '-SHSN PRFG','SN SQ', 'VCFG SHSN','FG -SHSN', 'BR -SN', '-SN VCSH','-SN DRSN VCBLSN','+SHSN DRSN','VCSN BR','-SN PRFG','VCSHSN','SNFG','-SNSG','-SN BCFG','-SN BCFG BR','-SN BR BCFG','SN FU', '-SN FU','SHSN BR','-SHSNGS','-SN UP','-SHSN BCFG','-SHSN VCFG','-SHSN','SNBR','-SN FZFG BLSN','-SN -UP','+SHSN BLSN', 'SN DRSN','-SN HZ', '-SN HZ DRSN','-SN VCFG','SQ','-SHSN BLSN','-SN BR DRSN','-SN SQ','BLSN SHSN','-SHSN DRSN','SHSN BLSN','SN BR','+SHSN','-SG FZFG','-SHSN BR','SHSN','-SN','-SN BR','SN','-SN DRSN','-SN BLSN','SN BLSN','-SNBR','SN FZFG','SN FG','-SN FG','-SN FZFG'],
-                                                     ['Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel', 'Snow and/or Graupel','Snow and/or Graupel'])
+WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['-SN BR SQ', 'SN FG SQ','-SN FZFG DRSN','-SNSN','SHSNGS BLSN','-SN DRSN SN','SN BLSN BR','-SGSN', '-SHSN HZ','-SHSN BLSN BR', 'SHSN BLSN BR','-FZUP -SN','SHSN VCSH','-SNSG DRSN','-SN BLSN BR','SNSG','-SN FZUP','-SHSN BLSN DRSN','-SHSN FU', 'SHSN FU','-SN DRSN BR', '-SHSN DRSN BR', 'SN DRSN BR','SN +BLSN', '-SHSN +BLSN','SN FZFG BLSN', '-SN DRSN HZ', '+SHSN BR', '-SN +BLSN', '-SN -FZUP','SHSNGS','SHSN FZFG','-SN FU PRFG','-SHSN FG', 'SG FZFG','SG','-SG','-SG DRSN','-SG VCFG','SHSG','-SHSG','SG BR','-SG BR','BLSN -SHSN', '-SG BLSN', '-SHSN FZFG','-SHSNGS BR', '-SNGS', '-SN -','-SNSG BR','SN BCFG','BCFG BR -SHSN','-SN BR FU', '-SHGSSN', '-SHSN PRFG','SN SQ', 'VCFG SHSN','FG -SHSN', 'BR -SN', '-SN VCSH','-SN DRSN VCBLSN','+SHSN DRSN','VCSN BR','-SN PRFG','VCSHSN','SNFG','-SNSG','-SN BCFG','-SN BCFG BR','-SN BR BCFG','SN FU', '-SN FU','SHSN BR','-SHSNGS','-SN UP','-SHSN BCFG','-SHSN VCFG','-SHSN','SNBR','-SN FZFG BLSN','-SN -UP','+SHSN BLSN', 'SN DRSN','-SN HZ', '-SN HZ DRSN','-SN VCFG','-SHSN BLSN','-SN BR DRSN','-SN SQ','BLSN SHSN','-SHSN DRSN','SHSN BLSN','SN BR','+SHSN','-SG FZFG','-SHSN BR','SHSN','-SN','-SN BR','SN','-SN DRSN','-SN BLSN','SN BLSN','-SNBR','SN FZFG','SN FG','-SN FG','-SN FZFG'],
+                                                     ['Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel','Snow and/or Graupel', 'Snow and/or Graupel','Snow and/or Graupel'])
 
 WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['VCTSSN', 'VCTS SN BR', 'TSSN FG','+VCTSSN', '+TSSN','VCTS SN FZFG','TSSN BLSN','-VCTSSN','SN VCTS','+SN VCTS','-SN VCTS','-VCTSSN BR','+TSGSSN', '-TSSNGS', '+TSGSSN', '-TSSNGS','TSSNGS','TSSN','-TSSN BR','VCTS -SN','VCTS -SN FZFG', 'VCTS -SN BR','-TSSN'],
                                                                 ['Snow and/or Graupel with Thunderstorm','Snow and/or Graupel with Thunderstorm','Snow and/or Graupel with Thunderstorm','Snow and/or Graupel with Thunderstorm','Snow and/or Graupel with Thunderstorm','Snow and/or Graupel with Thunderstorm','Snow and/or Graupel with Thunderstorm','Snow and/or Graupel with Thunderstorm','Snow and/or Graupel with Thunderstorm','Snow and/or Graupel with Thunderstorm','Snow and/or Graupel with Thunderstorm','Snow and/or Graupel with Thunderstorm','Snow and/or Graupel with Thunderstorm','Snow and/or Graupel with Thunderstorm','Snow and/or Graupel with Thunderstorm','Snow and/or Graupel with Thunderstorm','Snow and/or Graupel with Thunderstorm','Snow and/or Graupel with Thunderstorm','Snow and/or Graupel with Thunderstorm','Snow and/or Graupel with Thunderstorm','Snow and/or Graupel with Thunderstorm','Snow and/or Graupel with Thunderstorm','Snow and/or Graupel with Thunderstorm'])
@@ -478,8 +484,8 @@ WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['VCTS PL','+TSP
 WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['+PL BR','+PL FZFG','+PL FG','+IC','+IP','+PL'],
                                                                 ['Hevay Ice Pellets/Sleet','Hevay Ice Pellets/Sleet','Hevay Ice Pellets/Sleet','Hevay Ice Pellets/Sleet','Hevay Ice Pellets/Sleet','Hevay Ice Pellets/Sleet',])
 #RAIN#############################################################################################################################################################################
-WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['-DZBR','RA SQ','VCTS RA HZ', 'RA BR SQ','-SHGS BR','RA UP BR', 'RA MIFG','-RAGS', '+SH', 'RA VCFG', '-RA SQ','-RA BLDU','-DZ VCFG BR','-DZ PRFG BR','DZSG', '-DZSG VCSH', '-SHRA PRFG BR', 'RA DU','RA -UP BR','-SHRA BR BCFG','-RA DU', 'SHRA BCFG BR','-SHRA BCFG BR','-RA BR BCFG','BR RADZ', '+SHGSRA', '-RA -', '-DZSG','SHRAGR', '-RA FZFG','DZRABR','BR FG','FG BR','-SGRAGS','RA BR VCSH','-SHRAGR','RADZ BCFG','-RA -UP BR','BR -RA', '-RA -UP BR''SHSGRA','SHGR BR', '+SHGR BR','SHGR BR', '+SHGR BR','-SHGS','-GS BR','-SHRAGS BR','-SHRAGS','SHRAGS','-SHGSRA','SHGSRA','+SHRAGS','GS BR','-SHGR','VCFC VCSH','FG -DZ','BCFG VCSH','-VCSH','FC VCSH','DZ VCFG','-VCRA', '-SHRA DZ', '-SHRA FU','VCSH BR', 'DR', '+DZ FG','VCSHRA','-DZ FU', 'RA VCSH','- SHRA','SHRA BR FU', '-RADZ FG', '-SHRA +DZ','SHRA HZ', '-SHRA -DS', '-FG DZ', 'FG RA', 'VC RA','SH','-RA BCFG BR', '-DZ PRFG','VCDZ', '- DZ', 'RABR', '-SHRAHZ',  '-DZ BCFG', '+SHRA BR','VCFG VCSH','FZFG VCSH','-SHRA BR FU','RA HZ', '-DZ VCSH', '-RADZ VCFG', '-DZ VCFG', '+DZ BR','DZ VCSH','VCSH HZ', '-SH','-RA RA','-SHRA HZ','RA HZ', '-DZRA BR', 'RADZ FG','BR -RADZ','-RA BR FU','-RA PRFG', '-RA FG FU', 'RA -UP','-RA -UP', 'SHRA BR','-RADZ BR','FG DZ','-RABR','-RA VCSH', 'RADZ BR', '- RA', 'BR DZ','-DZRA VCFG','-RA SHRA', 'BR VCSH','SHRA VCSH','RA BCFG','FG -RA','DZRA BR','-RA BR VCFG','-RA HZ', '-SHRA VCSH', '- RA BR','-SHGRRA','VCRA','-SHRA PRFG','DRSA','-SHRA BCFG','SHGS', 'DZRA', '-SHRA FG','-RADZ BCFG','-RA VCFG','-RA BCFG', '+SHRA','RADZ','-RA BR','+DZRA', '+DZ', '-SHRA BR','-RA MIFG','BR -DZ', 'DZ', '-DZRA','-SHRA','-RADZ','-RA','RA','RA BR','-RA FG','-DZ BR','SHRA','-DZ FG','-DZ','DZ BR','SHRA''-RA BR','DZ FG','RA FG','VCSH'],
-                                                    ['Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain']) 
+WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['SQ','-DZBR','RA SQ','VCTS RA HZ', 'RA BR SQ','-SHGS BR','RA UP BR', 'RA MIFG','-RAGS', '+SH', 'RA VCFG', '-RA SQ','-RA BLDU','-DZ VCFG BR','-DZ PRFG BR','DZSG', '-DZSG VCSH', '-SHRA PRFG BR', 'RA DU','RA -UP BR','-SHRA BR BCFG','-RA DU', 'SHRA BCFG BR','-SHRA BCFG BR','-RA BR BCFG','BR RADZ', '+SHGSRA', '-RA -', '-DZSG','SHRAGR', '-RA FZFG','DZRABR','BR FG','FG BR','-SGRAGS','RA BR VCSH','-SHRAGR','RADZ BCFG','-RA -UP BR','BR -RA', '-RA -UP BR''SHSGRA','SHGR BR', '+SHGR BR','SHGR BR', '+SHGR BR','-SHGS','-GS BR','-SHRAGS BR','-SHRAGS','SHRAGS','-SHGSRA','SHGSRA','+SHRAGS','GS BR','-SHGR','VCFC VCSH','FG -DZ','BCFG VCSH','-VCSH','FC VCSH','DZ VCFG','-VCRA', '-SHRA DZ', '-SHRA FU','VCSH BR', 'DR', '+DZ FG','VCSHRA','-DZ FU', 'RA VCSH','- SHRA','SHRA BR FU', '-RADZ FG', '-SHRA +DZ','SHRA HZ', '-SHRA -DS', '-FG DZ', 'FG RA', 'VC RA','SH','-RA BCFG BR', '-DZ PRFG','VCDZ', '- DZ', 'RABR', '-SHRAHZ',  '-DZ BCFG', '+SHRA BR','VCFG VCSH','FZFG VCSH','-SHRA BR FU','RA HZ', '-DZ VCSH', '-RADZ VCFG', '-DZ VCFG', '+DZ BR','DZ VCSH','VCSH HZ', '-SH','-RA RA','-SHRA HZ','RA HZ', '-DZRA BR', 'RADZ FG','BR -RADZ','-RA BR FU','-RA PRFG', '-RA FG FU', 'RA -UP','-RA -UP', 'SHRA BR','-RADZ BR','FG DZ','-RABR','-RA VCSH', 'RADZ BR', '- RA', 'BR DZ','-DZRA VCFG','-RA SHRA', 'BR VCSH','SHRA VCSH','RA BCFG','FG -RA','DZRA BR','-RA BR VCFG','-RA HZ', '-SHRA VCSH', '- RA BR','-SHGRRA','VCRA','-SHRA PRFG','DRSA','-SHRA BCFG','SHGS', 'DZRA', '-SHRA FG','-RADZ BCFG','-RA VCFG','-RA BCFG', '+SHRA','RADZ','-RA BR','+DZRA', '+DZ', '-SHRA BR','-RA MIFG','BR -DZ', 'DZ', '-DZRA','-SHRA','-RADZ','-RA','RA','RA BR','-RA FG','-DZ BR','SHRA','-DZ FG','-DZ','DZ BR','SHRA''-RA BR','DZ FG','RA FG','VCSH'],
+                                                    ['Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain','Rain']) 
 
 WX_Codes_Filter['wxcodes'] = WX_Codes_Filter['wxcodes'].replace(['+TSRAGR','VCTS GR','+SHGR', '+TSGR','-SHGR VCTS','VCTS +RA FG','+TSRA BR SQ', '+VCTSRA BR','VCTSRA BR', '+VCTSDZ','RA FG VCTS', 'VCTSHZ', '-RA BR VCTS','-VCTSRA BR','VCTSBR',  'SHRAGS TS','+TS','TSDZ', '+SHRA VCTS','-VCTSDZ', 'TSGS','TSGR', '-TS SHRA','BR TS','TSRA FG','TS RABR','-DZ VCTS','TS FZFG','VCTS FZFG','-TSSH','-TSGRRA','TSRAGR','-TSGR','TS GR','TSGSRA','TSGSRA','+TSGSRA','-TSRAGS', 'TSRAGS','VCTS DZ', 'TSRA BCFG','BR TSRA', 'BR -TSRA','-TSRA PRFG','+TSBR','VCTSDZ','-TSSHRA','VCTS -TSRA','TSBR', '-TS RA','-TSDZ','VCTS HZ','VCTS +SHRA','-SHRA TS','+RA BR VCTS','SQ -TSRA','-TSRA HZ','SHRA VCTS','VCTS -DZ','VCTS RA','RA VCTS', 'TSRA VCFG','+RA VCTS','-SHRA VCTS','-TSRA VCSH','VCTS VCSH','TS -DZ','TS SHRA','TS HZ','TSSHRA','TSHZ', 'TS FG','TSSHRA','VCTS BR','VCTS -RA','+TSRA FG','VCTSSH','TS RA','RA BR VCTS','VCTS +RA','+RA FG VCTS','-TSRA FG', 'TSRA BR', 'VCTS RA FG', '-VCTSRABR','VCTS +RA BR','-TS','VCTS FG','VCTSRA','SHRA TS','TS BR','-TSRA BR', 'VCSH VCTS','+VCTSRA','VCTS -RA BR','-RA VCTS','VCTS RA BR','-VCTSRA','+TSRA','TS VCSH', '+TSRA BR', 'VCTS SHRA', 'TSRA','-RA TS','VCTS','VCTS -SHRA','TS','VCSH TS','-TSRA',],
                                                                 ['Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm','Rain with Thunderstorm',])
@@ -544,15 +550,16 @@ WX_Codes_Filter['ptype'] = WX_Codes_Filter['wxcodes'].map(precip_types_map)
 WX_Codes_Filter['color'] = WX_Codes_Filter['wxcodes'].map(precip_types_color)
 
 
-# In[22]:
+# In[28]:
 
 
 #WX_Codes_Filter = WX_Codes_Filter[WX_Codes_Filter['wxcodes'] != 'NULL']
+#WX_Codes_Filter[WX_Codes_Filter['station'] == 'ALB']
 
 
 # ### Uncomment out to view other wxcodes
 
-# In[23]:
+# In[29]:
 
 
 #WX_Codes_Filter[WX_Codes_Filter['ptype'].isna()]
@@ -561,7 +568,7 @@ pd.unique(WX_Codes_Filter['wxcodes'])
 
 # ### Replace all nan values with -1
 
-# In[24]:
+# In[30]:
 
 
 WX_Codes_Filter['ptype'] = WX_Codes_Filter['ptype'].fillna(0)
@@ -569,7 +576,7 @@ WX_Codes_Filter['ptype'] = WX_Codes_Filter['ptype'].fillna(0)
 
 # ### Make Datetime and Object to use when hovered over
 
-# In[25]:
+# In[31]:
 
 
 WX_Codes_Filter['valid']=WX_Codes_Filter['valid'].astype(str)
@@ -578,7 +585,7 @@ WX_Codes_Filter['valid'] = WX_Codes_Filter['valid'].apply(lambda x: x + 'Z')
 
 # ### Round times to be used in making a timeseries
 
-# In[26]:
+# In[33]:
 
 
 WX_Codes_Filter['valid_rounded'] = pd.to_datetime( WX_Codes_Filter['valid'])
@@ -589,7 +596,7 @@ WX_Codes_Filter['valid_rounded'] = WX_Codes_Filter['valid_rounded'].dt.strftime(
 
 # ### Renaming Columns
 
-# In[27]:
+# In[77]:
 
 
 WX_Codes_Filter = WX_Codes_Filter.fillna('#000000')
@@ -599,17 +606,17 @@ WX_Codes_Filter['Time'] = pd.to_datetime(WX_Codes_Filter['Time'])
 
 # ### Finding the max precip per hour
 
-# In[28]:
+# In[78]:
 
 
 precip_filter = WX_Codes_Filter[WX_Codes_Filter['1 Hour Precipitation'] != 'M']
 precip_filter = precip_filter[precip_filter['1 Hour Precipitation'] != '0.00']
-precip_filter['1 Hour Precipitation'] = precip_filter['1 Hour Precipitation'].astype(float)
 #WX_Codes_Filter2[WX_Codes_Filter2['Station'] == 'FYV']
+precip_filter['1 Hour Precipitation'] = precip_filter['1 Hour Precipitation'].astype(float)
 ASOS_precip_hr = precip_filter.groupby(['Station','Time','Lat','Lon'])['1 Hour Precipitation'].max().reset_index()
 
 
-# In[29]:
+# In[79]:
 
 
 ASOS_precip_hr['1 Hour Precipitation'] = ASOS_precip_hr['1 Hour Precipitation'].astype(float).round(2)
@@ -618,7 +625,7 @@ ASOS_precip_hr = ASOS_precip_hr[ASOS_precip_hr['1 Hour Precipitation'] != 0]
 
 # ### Just keep the last instance for each hour
 
-# In[30]:
+# In[80]:
 
 
 Temp_Filter = WX_Codes_Filter[WX_Codes_Filter['Temperature (F)'] != 'M']
@@ -631,7 +638,7 @@ ASOS_data_real['Real Feel Temperature'] = ASOS_data_real['Real Feel Temperature'
 
 # ### Calculating max gusts
 
-# In[31]:
+# In[81]:
 
 
 ASOS_data_gust = WX_Codes_Filter
@@ -642,7 +649,7 @@ ASOS_data_gust['Max Gust (mph)'] = ASOS_data_gust[['peak_wind_gust', 'Wind (mph)
 ASOS_data_gust_grouped = ASOS_data_gust.groupby(['Station','Time','Lat','Lon'])['Max Gust (mph)'].max().reset_index()
 
 
-# In[32]:
+# In[82]:
 
 
 ASOS_data_gust = ASOS_data_gust_grouped.dropna()
@@ -651,7 +658,7 @@ ASOS_data_gust['Max Gust (mph)'] = (ASOS_data_gust['Max Gust (mph)']*1.15078).ro
 
 # ### Making datetime functions the same throughout datasets so the slider can work
 
-# In[33]:
+# In[83]:
 
 
 ASOS_data_temp['Temperature (F)_r'] = round(ASOS_data_temp['Temperature (F)'].astype(float)).astype(int).astype(str).astype('U')
@@ -659,7 +666,7 @@ ASOS_data_temp['Temperature (F)_r'] = round(ASOS_data_temp['Temperature (F)'].as
 
 # ### Removing null from ptype
 
-# In[34]:
+# In[84]:
 
 
 ASOS_data_ptype = WX_Codes_Filter[WX_Codes_Filter['WX Code'] != 'NULL']
@@ -667,12 +674,17 @@ ASOS_data_ptype = ASOS_data_ptype[ASOS_data_ptype['WX Code'] != 'M']
 ASOS_data_ptype = ASOS_data_ptype[ASOS_data_ptype['WX Code'] != '#000000']
 ASOS_data_ptype = ASOS_data_ptype[ASOS_data_ptype['Current WX'] != 'NULL']
 ASOS_data_ptype = ASOS_data_ptype[ASOS_data_ptype['Current WX'] != '#000000']
+
+
+# In[85]:
+
+
 ASOS_data_ptype = ASOS_data_ptype.drop_duplicates(subset=['Time', 'Station'], keep='last')
 
 
 # ### NYSM_data
 
-# In[35]:
+# In[86]:
 
 
 nysm_sites = pd.read_csv('/spare11/atm533/data/nysm_sites.csv')
@@ -696,7 +708,7 @@ NYSM_data['OBS Time'] = NYSM_data['OBS Time'].dt.strftime('%Y-%m-%d %H:%MZ')
 
 # ### Precipitation 
 
-# In[36]:
+# In[87]:
 
 
 precip_filter_NYSM = NYSM_data[NYSM_data['1 Hour Precipitation'] != 0]
@@ -704,32 +716,32 @@ precip_filter_NYSM = precip_filter_NYSM.sort_values(['Station','Time','Lat','Lon
 precip_NYSM_grouped = precip_filter_NYSM.groupby(['Station', 'Lat','Lon','Time'])
 
 
-# In[37]:
+# In[88]:
 
 
 first = precip_NYSM_grouped.first()
 last = precip_NYSM_grouped.last()
 
 
-# In[38]:
+# In[89]:
 
 
 precip_NYSM = last['1 Hour Precipitation'] - first['1 Hour Precipitation']
 
 
-# In[39]:
+# In[90]:
 
 
 precip_NYSM = precip_NYSM.groupby(['Station', 'Lat','Lon','Time']).last().reset_index()
 
 
-# In[40]:
+# In[91]:
 
 
 precip_NYSM['1 Hour Precipitation'] = precip_NYSM['1 Hour Precipitation'].astype(float)*0.0393701
 
 
-# In[41]:
+# In[92]:
 
 
 #NYSM_data.columns
@@ -737,7 +749,7 @@ precip_NYSM['1 Hour Precipitation'] = precip_NYSM['1 Hour Precipitation'].astype
 
 # ### Converting NYSM temp and adding wind chill
 
-# In[42]:
+# In[93]:
 
 
 NYSM_data['Temperature (F)'] = (NYSM_data['Temperature (F)']*9/5)+32
@@ -747,14 +759,14 @@ NYSM_Wind =NYSM_data['Wind (mph)'].values*units.mph
 NYSM_data['Real Feel Temperature'] = mpcalc.apparent_temperature(NYSM_Temp.astype(float), NYSM_data['Relative Humidity'], NYSM_Wind.astype(float), mask_undefined=False)
 
 
-# In[43]:
+# In[94]:
 
 
 NYSM_data['Temperature (F)_r'] = round(NYSM_data['Temperature (F)'].astype(float)).astype(int).astype(str).astype('U')
 NYSM_data['Real Feel Temperature'] = NYSM_data['Real Feel Temperature'].round().astype(int)
 
 
-# In[44]:
+# In[95]:
 
 
 NYSM_data_gust = NYSM_data
@@ -765,7 +777,7 @@ NYSM_max_gust = NYSM_max_gust.reset_index()
 NYSM_max_gust['Max Gust (mph)'] =NYSM_max_gust['Max Gust (mph)'].round().astype(int)
 
 
-# In[45]:
+# In[96]:
 
 
 NYSM_data = NYSM_data.drop_duplicates(subset=['Time', 'Station'], keep='last')
@@ -773,7 +785,7 @@ NYSM_data = NYSM_data.drop_duplicates(subset=['Time', 'Station'], keep='last')
 
 # ### Merging Datasets
 
-# In[46]:
+# In[97]:
 
 
 precip_NYSM['1 Hour Precipitation'] = precip_NYSM['1 Hour Precipitation'].astype(object)
@@ -781,7 +793,7 @@ Gust_data = pd.merge(NYSM_max_gust, ASOS_data_gust,  how='outer')
 Precip_data = pd.merge(ASOS_precip_hr, precip_NYSM, how='outer')
 
 
-# In[47]:
+# In[98]:
 
 
 Precip_data = Precip_data[Precip_data['1 Hour Precipitation'] != 0.0001]
@@ -790,7 +802,7 @@ Precip_data = Precip_data[Precip_data['1 Hour Precipitation'] != 0.0]
 
 # ### Changing Dataset columns so they're uniform throughout NYSM and ASOS
 
-# In[48]:
+# In[99]:
 
 
 NYSM_data['Wind (mph)'] = NYSM_data['Wind (mph)'].astype(object)
@@ -802,7 +814,7 @@ NYSM_data['Temperature (F)'] = NYSM_data['Temperature (F)'].astype(object)
 
 # ### Merging the datasets together
 
-# In[49]:
+# In[100]:
 
 
 Temp_data = pd.merge(ASOS_data_temp, NYSM_data, how='outer')
@@ -810,7 +822,7 @@ Real_data = pd.merge(ASOS_data_real, NYSM_data, how='outer')
 Ptype_data = pd.merge(ASOS_data_ptype, MPING_data, how='outer')
 
 
-# In[74]:
+# In[102]:
 
 
 # Define function to map precipitation types to short codes
@@ -882,14 +894,14 @@ Ptype_data['Precipitation Label'] = Ptype_data['Current WX'].apply(get_short_cod
 
 # ### Adding X and Y coordinates to the data
 
-# In[76]:
+# In[104]:
 
 
 inProj = Proj(init='epsg:4326')
 outProj = Proj(init='epsg:3857')
 
 
-# In[77]:
+# In[105]:
 
 
 Temp_data['x'], Temp_data['y'] = transform(inProj,outProj,Temp_data['Lon'].values,Temp_data['Lat'].values)
@@ -899,7 +911,7 @@ Gust_data['x'], Gust_data['y'] = transform(inProj,outProj,Gust_data['Lon'].value
 Precip_data['x'],Precip_data['y'] = transform(inProj,outProj,Precip_data['Lon'].values,Precip_data['Lat'].values)
 
 
-# In[78]:
+# In[107]:
 
 
 Precip_data_24 = Precip_data.groupby(['Station','Lat','Lon','x','y'])['1 Hour Precipitation'].sum()
@@ -907,25 +919,25 @@ Precip_data_24 = Precip_data_24.reset_index()
 Precip_data_24 = Precip_data_24.rename(columns={'1 Hour Precipitation':'24 Hour Precipitation'})
 
 
-# In[79]:
+# In[108]:
 
 
 Real_data['Real Feel Temperature'] = Real_data['Real Feel Temperature'].astype(float)
 
 
-# In[80]:
+# In[109]:
 
 
 Ptype_data.dropna(subset=['Current WX'], inplace=True)
 
 
-# In[81]:
+# In[111]:
 
 
 Gust_data = Gust_data[Gust_data['Max Gust (mph)'] >= 10]
 
 
-# In[82]:
+# In[112]:
 
 
 Ptype_data['Label'] = 'Precipitation Type'
@@ -936,20 +948,30 @@ Precip_data['Label'] = '1hr Precipitation'
 Precip_data_24['Label'] = '24hr Precipitation'
 
 
-# In[87]:
+# In[114]:
 
 
 Ptype = Ptype_data.loc[:,['Station','OBS Time','Current WX','WX Code', 'Temperature (F)','color','Lat','Lon','Time','Label','Precipitation Label']]
 Gust = Gust_data.loc[:,['Station','Max Gust (mph)','Lat','Lon','Time','Label']]
 Temp = Temp_data.loc[:,['Station','OBS Time','Temperature (F)','Temperature (F)_r','Lat','Lon','Time','Label']]
-Temp['Temperature (F)']= Temp['Temperature (F)'].astype(float).round(2)
 Real_Feel = Real_data.loc[:,['Station','OBS Time','Real Feel Temperature','Temperature (F)','Lat','Lon','Time','Label']]
 Precip = Precip_data.loc[:,['Station','1 Hour Precipitation','Lat','Lon','Time','Label']]
 Precip_24 = Precip_data_24.loc[:,['Station','24 Hour Precipitation','Lat','Lon','Label']]
-Temp['Temperature (F)'] = Temp['Temperature (F)'].astype(float)
 
 
-# In[89]:
+# In[116]:
+
+
+Temp['Temperature (F)']= Temp['Temperature (F)'].astype(float).round(2)
+
+
+# In[117]:
+
+
+Temp['Temperature (F)']= Temp['Temperature (F)'].astype(float)
+
+
+# In[118]:
 
 
 All_data = pd.concat([Ptype, Gust, Temp, Real_Feel, Precip, Precip_24])
@@ -957,10 +979,16 @@ All_data = pd.concat([Ptype, Gust, Temp, Real_Feel, Precip, Precip_24])
 
 # ### Save the Data
 
-# In[90]:
+# In[119]:
 
 
 All_data.to_csv('All_data.csv', index=False)
+
+
+# In[120]:
+
+
+All_data[All_data['Station'] =='MYGF']
 
 
 # In[ ]:
