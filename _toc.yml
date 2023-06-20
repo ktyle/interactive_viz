@@ -1,6 +1,6 @@
 format: jb-book
 root: README
 parts:
-  - caption: Introduction
+  - caption: Example workflows
     chapters:
-      - file: notebooks/notebook-template
+      - file: notebooks/interactive.ipynb

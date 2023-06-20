@@ -1,10 +1,21 @@
-name: cookbook-dev
+name: interactive_viz
 channels:
   - conda-forge
 dependencies:
   - jupyter-book
   - jupyterlab
-  - jupyter_server<2
+  - jupyter_server
+  - zarr
+  - xarray
+  - geoviews
+  - datashader
+  - matplotlib
+  - panel
+  - pandas
+  - requests
+  - pathlib
+  - metpy
+  - scipy
   - pip
   - pip:
       - sphinx-pythia-theme
