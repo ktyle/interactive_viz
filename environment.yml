@@ -17,7 +17,6 @@ dependencies:
   - datetime
   - metpy
   - scipy
-  - gradient
   - pip
   - pip:
       - sphinx-pythia-theme
